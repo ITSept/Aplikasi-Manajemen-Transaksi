@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9ed1adfb-d0b1-4b3e-9849-7f284f689307">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString>
+		<![CDATA[SELECT
+     *,
+     aruskas.`idkas` AS aruskas_idkas,
+     aruskas.`tanggal` AS aruskas_tanggal,
+     aruskas.`Keterangan` AS aruskas_Keterangan,
+     aruskas.`pemasukan` AS aruskas_pemasukan,
+     aruskas.`pengeluaran` AS aruskas_pengeluaran,
+     aruskas.`saldo` AS aruskas_saldo
+FROM
+     `aruskas` aruskas]]>
+	</queryString>
+	<field name="idkas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Keterangan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pemasukan" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pengeluaran" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="saldo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="aruskas_idkas" class="java.lang.String"/>
+	<field name="aruskas_tanggal" class="java.sql.Date"/>
+	<field name="aruskas_Keterangan" class="java.lang.String"/>
+	<field name="aruskas_pemasukan" class="java.lang.Integer"/>
+	<field name="aruskas_pengeluaran" class="java.lang.Integer"/>
+	<field name="aruskas_saldo" class="java.lang.Integer"/>
+	<variable name="total" class="java.lang.String">
+		<variableExpression><![CDATA[$F{aruskas_saldo}]]></variableExpression>
+	</variable>
+	<group name="aruskas_tanggal">
+		<groupExpression><![CDATA[$F{aruskas_tanggal}]]></groupExpression>
+		<groupHeader>
+			<band height="25">
+				<rectangle>
+					<reportElement mode="Opaque" x="0" y="4" width="10" height="16" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="7b760b09-5fa9-4918-bea4-dca07d114c3f"/>
+				</rectangle>
+				<textField>
+					<reportElement style="SubTitle" x="15" y="4" width="156" height="18" forecolor="#000000" uuid="deafd144-e663-4471-974d-c896ce617f50"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{aruskas_tanggal}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="24">
+				<staticText>
+					<reportElement x="371" y="0" width="81" height="20" uuid="8a875e09-88a9-4d9b-8aa8-0c25165b4327"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Saldo Akhir : ]]></text>
+				</staticText>
+				<textField pattern="¤ #,##0">
+					<reportElement x="452" y="0" width="100" height="20" uuid="7f97f53e-c26f-4468-aba1-ea6811031e88"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="92" splitType="Stretch">
+			<staticText>
+				<reportElement x="138" y="39" width="305" height="24" uuid="b4e0a93a-be68-4d56-9da1-70a0c21ab870"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="16" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[BAKSO NETIZEN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="63" width="305" height="23" uuid="d642b468-8f62-44a1-987d-08be459a48fe"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Jatinegara, Jakarta Timur]]></text>
+			</staticText>
+			<image>
+				<reportElement x="26" y="0" width="91" height="89" uuid="678b1747-9d8a-4b0d-a969-b2e7675cd71a"/>
+				<imageExpression><![CDATA["F:\\Me\\NetBeansProjects\\kedaibakso\\src\\report\\logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="138" y="0" width="414" height="39" uuid="03ab5a6a-3a01-46b0-8101-e5bca29fc368"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="20" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[LAPORAN ARUS KAS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="a9a50012-0f86-4aa5-a1c8-d50378a476ff"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="267" height="15" uuid="da6b7f21-7354-4b17-a982-18487ca59a2d"/>
+				<text><![CDATA[Keterangan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="267" y="19" width="95" height="15" uuid="5f93b411-5e29-442b-8122-419bb2f7e044"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Pemasukan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="362" y="19" width="95" height="15" uuid="47a034bd-434c-4413-88ed-7082889bbc00"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Pengeluaran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="457" y="19" width="95" height="15" uuid="dd15e2bb-6409-4ce3-bc71-3d8668ebdd31"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Saldo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="2" uuid="f128d9af-528e-4892-aa01-6af407378013"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Double" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="267" height="15" uuid="f73abe7e-cfd8-4daa-b76f-d224dfd60be3"/>
+				<textFieldExpression><![CDATA[$F{aruskas_Keterangan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="267" y="0" width="95" height="15" uuid="780a14b3-7cbc-4185-85c3-bc5652107cdb"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{aruskas_pemasukan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="362" y="0" width="95" height="15" uuid="4bec16dc-f401-496a-82f0-e1b05ba05f5c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{aruskas_pengeluaran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="457" y="0" width="95" height="15" uuid="9cdea9bf-6910-48b5-8c0a-7d100a65d8ea"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{aruskas_saldo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="5e462937-127f-4333-b0c8-6f8e0cf61249"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="6383c07b-2762-4982-b355-4a042098a79c"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="157" splitType="Stretch">
+			<textField>
+				<reportElement x="371" y="45" width="181" height="20" uuid="e5311cde-f521-412f-bdd0-71b6f3133140"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE, dd MMMMM yyyy",new java.util.Locale("id")).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="322" y="45" width="49" height="20" uuid="65d34e96-be44-4204-a914-ff4d48d8a72d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Jakarta,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="135" width="149" height="20" uuid="58548426-8801-4876-baa9-5792649bdecc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Admin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="115" width="149" height="20" uuid="66b64ad7-f75c-40f8-b884-c4520b38f1af"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Savera]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
